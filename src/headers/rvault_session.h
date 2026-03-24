@@ -15,7 +15,7 @@ public:
      * Session Object Constructor for RVault
      * Derives key from master password and loads header and entries into memory
      */
-    RVaultSession(const char* master_password);
+    RVaultSession(std::string& master_password);
 
     /*
      * When the session ends, all the data stored in memory needs to be zeroed for enhanced security
@@ -31,6 +31,11 @@ public:
      * Getter method for the entries vector
      */
     std::vector<RVaultEntryEncrypted> getEntries() const;
+
+    /*
+     * Getter method for the vault header
+     */
+    RVaultHeader getHeader() const;
 
     /*
      * Adds an encrypted entry to the session's entry list

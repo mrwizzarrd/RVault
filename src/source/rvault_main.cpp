@@ -17,10 +17,10 @@ int main(void){
     int failed_attempts = 0;
     bool unlocked = false;
     RVaultSession* session;
-    while (!unlocked || failed_attempts <= 5) {
+    while (!unlocked && failed_attempts <= 5) {
         try {
-            std::string masterPwd = get_master_password();
-            session = new RVaultSession(masterPwd.c_str());
+            std::string masterPwd;
+            session = new RVaultSession(masterPwd);
             unlocked = true;
             break;
         } catch (InvalidPasswordException& e) {
@@ -30,13 +30,10 @@ int main(void){
 
         if (failed_attempts >= 5) {
             std::cout << "Too many failed attempts, try again later\n";
-            break;
         }
     }
     if (unlocked) {
 
     }
-
-
 
 }

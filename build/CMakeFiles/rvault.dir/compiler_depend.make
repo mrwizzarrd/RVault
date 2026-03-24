@@ -919,6 +919,7 @@ CMakeFiles/rvault.dir/src/source/rvault_file.cpp.o: ../src/source/rvault_file.cp
   /usr/include/sodium/crypto_stream_salsa208.h \
   /usr/include/sodium/crypto_stream_xchacha20.h \
   ../src/headers/rvault_vault.h \
+  /usr/include/c++/11/ctime \
   ../src/headers/rvault_constants.h \
   ../src/headers/rvault_crypto.h \
   /usr/include/c++/11/vector \
@@ -941,7 +942,6 @@ CMakeFiles/rvault.dir/src/source/rvault_file.cpp.o: ../src/source/rvault_file.cp
   /usr/include/c++/11/chrono \
   /usr/include/c++/11/ratio \
   /usr/include/c++/11/limits \
-  /usr/include/c++/11/ctime \
   /usr/include/c++/11/bits/parse_numbers.h \
   /usr/include/c++/11/bits/fs_path.h \
   /usr/include/c++/11/locale \
@@ -1319,7 +1319,9 @@ CMakeFiles/rvault.dir/src/source/rvault_main.cpp.o: ../src/source/rvault_main.cp
   ../src/headers/rvault_constants.h \
   ../src/headers/rvault_exception.h \
   ../src/headers/rvault_file.h \
-  ../src/headers/rvault_ui.h
+  ../src/headers/rvault_ui.h \
+  ../src/headers/rvault_crypto.h \
+  ../src/headers/rvault_vault.h
 
 CMakeFiles/rvault.dir/src/source/rvault_platform.c.o: ../src/source/rvault_platform.c \
   /usr/include/stdc-predef.h \
@@ -1814,6 +1816,12 @@ CMakeFiles/rvault.dir/src/source/rvault_session.cpp.o: ../src/source/rvault_sess
   /usr/include/sodium/crypto_stream_salsa208.h \
   /usr/include/sodium/crypto_stream_xchacha20.h \
   ../src/headers/rvault_vault.h \
+  /usr/include/c++/11/ctime \
+  /usr/include/time.h \
+  /usr/include/x86_64-linux-gnu/bits/time.h \
+  /usr/include/x86_64-linux-gnu/bits/timex.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
   ../src/headers/rvault_constants.h \
   ../src/headers/rvault_crypto.h \
   /usr/include/c++/11/vector \
@@ -1884,11 +1892,6 @@ CMakeFiles/rvault.dir/src/source/rvault_session.cpp.o: ../src/source/rvault_sess
   /usr/include/x86_64-linux-gnu/bits/sched.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
-  /usr/include/time.h \
-  /usr/include/x86_64-linux-gnu/bits/time.h \
-  /usr/include/x86_64-linux-gnu/bits/timex.h \
-  /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
-  /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
   /usr/include/x86_64-linux-gnu/bits/setjmp.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/atomic_word.h \
@@ -1950,7 +1953,6 @@ CMakeFiles/rvault.dir/src/source/rvault_session.cpp.o: ../src/source/rvault_sess
   /usr/include/c++/11/chrono \
   /usr/include/c++/11/ratio \
   /usr/include/c++/11/limits \
-  /usr/include/c++/11/ctime \
   /usr/include/c++/11/bits/parse_numbers.h \
   /usr/include/c++/11/bits/fs_path.h \
   /usr/include/c++/11/locale \
@@ -1982,6 +1984,8 @@ CMakeFiles/rvault.dir/src/source/rvault_session.cpp.o: ../src/source/rvault_sess
   ../src/headers/rvault_vault.h \
   ../src/headers/rvault_file.h \
   ../src/headers/rvault_session.h \
+  ../src/headers/rvault_ui.h \
+  ../src/headers/rvault_crypto.h \
   /usr/include/c++/11/cstring \
   /usr/include/string.h \
   /usr/include/strings.h \
@@ -2168,27 +2172,9 @@ CMakeFiles/rvault.dir/src/source/rvault_ui.cpp.o: ../src/source/rvault_ui.cpp \
   /usr/include/c++/11/istream \
   /usr/include/c++/11/bits/istream.tcc \
   ../src/headers/rvault_ui.h \
-  /usr/include/termios.h \
-  /usr/include/x86_64-linux-gnu/bits/termios.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-struct.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-c_cc.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-c_iflag.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-c_oflag.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-baud.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-c_cflag.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-c_lflag.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-tcflow.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-misc.h \
-  /usr/include/x86_64-linux-gnu/sys/ttydefaults.h \
-  /usr/include/unistd.h \
-  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
-  /usr/include/x86_64-linux-gnu/bits/environments.h \
-  /usr/include/x86_64-linux-gnu/bits/confname.h \
-  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
-  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
-  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
-  /usr/include/linux/close_range.h \
-  ../src/headers/rvault_platform.h \
+  ../src/headers/rvault_crypto.h \
+  ../src/headers/rvault_vault.h \
+  /usr/include/c++/11/ctime \
   ../src/headers/rvault_constants.h \
   /usr/include/sodium.h \
   /usr/include/sodium/version.h \
@@ -2279,7 +2265,40 @@ CMakeFiles/rvault.dir/src/source/rvault_ui.cpp.o: ../src/source/rvault_ui.cpp \
   /usr/include/sodium/crypto_pwhash_scryptsalsa208sha256.h \
   /usr/include/sodium/crypto_stream_salsa2012.h \
   /usr/include/sodium/crypto_stream_salsa208.h \
-  /usr/include/sodium/crypto_stream_xchacha20.h
+  /usr/include/sodium/crypto_stream_xchacha20.h \
+  ../src/headers/rvault_crypto.h \
+  /usr/include/c++/11/vector \
+  /usr/include/c++/11/bits/stl_uninitialized.h \
+  /usr/include/c++/11/bits/stl_vector.h \
+  /usr/include/c++/11/bits/stl_bvector.h \
+  /usr/include/c++/11/bits/vector.tcc \
+  /usr/include/c++/11/fstream \
+  /usr/include/c++/11/bits/codecvt.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
+  /usr/include/c++/11/bits/fstream.tcc \
+  /usr/include/termios.h \
+  /usr/include/x86_64-linux-gnu/bits/termios.h \
+  /usr/include/x86_64-linux-gnu/bits/termios-struct.h \
+  /usr/include/x86_64-linux-gnu/bits/termios-c_cc.h \
+  /usr/include/x86_64-linux-gnu/bits/termios-c_iflag.h \
+  /usr/include/x86_64-linux-gnu/bits/termios-c_oflag.h \
+  /usr/include/x86_64-linux-gnu/bits/termios-baud.h \
+  /usr/include/x86_64-linux-gnu/bits/termios-c_cflag.h \
+  /usr/include/x86_64-linux-gnu/bits/termios-c_lflag.h \
+  /usr/include/x86_64-linux-gnu/bits/termios-tcflow.h \
+  /usr/include/x86_64-linux-gnu/bits/termios-misc.h \
+  /usr/include/x86_64-linux-gnu/sys/ttydefaults.h \
+  /usr/include/unistd.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
+  /usr/include/linux/close_range.h \
+  ../src/headers/rvault_platform.h \
+  ../src/headers/rvault_constants.h
 
 
 /usr/include/linux/close_range.h:

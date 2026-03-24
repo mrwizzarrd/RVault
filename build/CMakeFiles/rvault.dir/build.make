@@ -56,7 +56,7 @@ EQUALS = =
 CMAKE_SOURCE_DIR = /home/mikewizzarrd/GitHub/RVault
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mikewizzarrd/GitHub/RVault/cmake-build-debug
+CMAKE_BINARY_DIR = /home/mikewizzarrd/GitHub/RVault/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/rvault.dir/depend.make
@@ -72,7 +72,7 @@ include CMakeFiles/rvault.dir/flags.make
 CMakeFiles/rvault.dir/src/source/rvault_random.c.o: CMakeFiles/rvault.dir/flags.make
 CMakeFiles/rvault.dir/src/source/rvault_random.c.o: ../src/source/rvault_random.c
 CMakeFiles/rvault.dir/src/source/rvault_random.c.o: CMakeFiles/rvault.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mikewizzarrd/GitHub/RVault/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/rvault.dir/src/source/rvault_random.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mikewizzarrd/GitHub/RVault/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/rvault.dir/src/source/rvault_random.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/rvault.dir/src/source/rvault_random.c.o -MF CMakeFiles/rvault.dir/src/source/rvault_random.c.o.d -o CMakeFiles/rvault.dir/src/source/rvault_random.c.o -c /home/mikewizzarrd/GitHub/RVault/src/source/rvault_random.c
 
 CMakeFiles/rvault.dir/src/source/rvault_random.c.i: cmake_force
@@ -86,7 +86,7 @@ CMakeFiles/rvault.dir/src/source/rvault_random.c.s: cmake_force
 CMakeFiles/rvault.dir/src/source/rvault_crypto.c.o: CMakeFiles/rvault.dir/flags.make
 CMakeFiles/rvault.dir/src/source/rvault_crypto.c.o: ../src/source/rvault_crypto.c
 CMakeFiles/rvault.dir/src/source/rvault_crypto.c.o: CMakeFiles/rvault.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mikewizzarrd/GitHub/RVault/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/rvault.dir/src/source/rvault_crypto.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mikewizzarrd/GitHub/RVault/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/rvault.dir/src/source/rvault_crypto.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/rvault.dir/src/source/rvault_crypto.c.o -MF CMakeFiles/rvault.dir/src/source/rvault_crypto.c.o.d -o CMakeFiles/rvault.dir/src/source/rvault_crypto.c.o -c /home/mikewizzarrd/GitHub/RVault/src/source/rvault_crypto.c
 
 CMakeFiles/rvault.dir/src/source/rvault_crypto.c.i: cmake_force
@@ -100,7 +100,7 @@ CMakeFiles/rvault.dir/src/source/rvault_crypto.c.s: cmake_force
 CMakeFiles/rvault.dir/src/source/rvault_auth.cpp.o: CMakeFiles/rvault.dir/flags.make
 CMakeFiles/rvault.dir/src/source/rvault_auth.cpp.o: ../src/source/rvault_auth.cpp
 CMakeFiles/rvault.dir/src/source/rvault_auth.cpp.o: CMakeFiles/rvault.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mikewizzarrd/GitHub/RVault/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/rvault.dir/src/source/rvault_auth.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mikewizzarrd/GitHub/RVault/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/rvault.dir/src/source/rvault_auth.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/rvault.dir/src/source/rvault_auth.cpp.o -MF CMakeFiles/rvault.dir/src/source/rvault_auth.cpp.o.d -o CMakeFiles/rvault.dir/src/source/rvault_auth.cpp.o -c /home/mikewizzarrd/GitHub/RVault/src/source/rvault_auth.cpp
 
 CMakeFiles/rvault.dir/src/source/rvault_auth.cpp.i: cmake_force
@@ -114,7 +114,7 @@ CMakeFiles/rvault.dir/src/source/rvault_auth.cpp.s: cmake_force
 CMakeFiles/rvault.dir/src/source/rvault_main.cpp.o: CMakeFiles/rvault.dir/flags.make
 CMakeFiles/rvault.dir/src/source/rvault_main.cpp.o: ../src/source/rvault_main.cpp
 CMakeFiles/rvault.dir/src/source/rvault_main.cpp.o: CMakeFiles/rvault.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mikewizzarrd/GitHub/RVault/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/rvault.dir/src/source/rvault_main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mikewizzarrd/GitHub/RVault/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/rvault.dir/src/source/rvault_main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/rvault.dir/src/source/rvault_main.cpp.o -MF CMakeFiles/rvault.dir/src/source/rvault_main.cpp.o.d -o CMakeFiles/rvault.dir/src/source/rvault_main.cpp.o -c /home/mikewizzarrd/GitHub/RVault/src/source/rvault_main.cpp
 
 CMakeFiles/rvault.dir/src/source/rvault_main.cpp.i: cmake_force
@@ -128,7 +128,7 @@ CMakeFiles/rvault.dir/src/source/rvault_main.cpp.s: cmake_force
 CMakeFiles/rvault.dir/src/source/rvault_platform.c.o: CMakeFiles/rvault.dir/flags.make
 CMakeFiles/rvault.dir/src/source/rvault_platform.c.o: ../src/source/rvault_platform.c
 CMakeFiles/rvault.dir/src/source/rvault_platform.c.o: CMakeFiles/rvault.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mikewizzarrd/GitHub/RVault/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/rvault.dir/src/source/rvault_platform.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mikewizzarrd/GitHub/RVault/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/rvault.dir/src/source/rvault_platform.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/rvault.dir/src/source/rvault_platform.c.o -MF CMakeFiles/rvault.dir/src/source/rvault_platform.c.o.d -o CMakeFiles/rvault.dir/src/source/rvault_platform.c.o -c /home/mikewizzarrd/GitHub/RVault/src/source/rvault_platform.c
 
 CMakeFiles/rvault.dir/src/source/rvault_platform.c.i: cmake_force
@@ -142,7 +142,7 @@ CMakeFiles/rvault.dir/src/source/rvault_platform.c.s: cmake_force
 CMakeFiles/rvault.dir/src/source/rvault_file.cpp.o: CMakeFiles/rvault.dir/flags.make
 CMakeFiles/rvault.dir/src/source/rvault_file.cpp.o: ../src/source/rvault_file.cpp
 CMakeFiles/rvault.dir/src/source/rvault_file.cpp.o: CMakeFiles/rvault.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mikewizzarrd/GitHub/RVault/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/rvault.dir/src/source/rvault_file.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mikewizzarrd/GitHub/RVault/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/rvault.dir/src/source/rvault_file.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/rvault.dir/src/source/rvault_file.cpp.o -MF CMakeFiles/rvault.dir/src/source/rvault_file.cpp.o.d -o CMakeFiles/rvault.dir/src/source/rvault_file.cpp.o -c /home/mikewizzarrd/GitHub/RVault/src/source/rvault_file.cpp
 
 CMakeFiles/rvault.dir/src/source/rvault_file.cpp.i: cmake_force
@@ -156,7 +156,7 @@ CMakeFiles/rvault.dir/src/source/rvault_file.cpp.s: cmake_force
 CMakeFiles/rvault.dir/src/source/rvault_session.cpp.o: CMakeFiles/rvault.dir/flags.make
 CMakeFiles/rvault.dir/src/source/rvault_session.cpp.o: ../src/source/rvault_session.cpp
 CMakeFiles/rvault.dir/src/source/rvault_session.cpp.o: CMakeFiles/rvault.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mikewizzarrd/GitHub/RVault/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/rvault.dir/src/source/rvault_session.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mikewizzarrd/GitHub/RVault/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/rvault.dir/src/source/rvault_session.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/rvault.dir/src/source/rvault_session.cpp.o -MF CMakeFiles/rvault.dir/src/source/rvault_session.cpp.o.d -o CMakeFiles/rvault.dir/src/source/rvault_session.cpp.o -c /home/mikewizzarrd/GitHub/RVault/src/source/rvault_session.cpp
 
 CMakeFiles/rvault.dir/src/source/rvault_session.cpp.i: cmake_force
@@ -170,7 +170,7 @@ CMakeFiles/rvault.dir/src/source/rvault_session.cpp.s: cmake_force
 CMakeFiles/rvault.dir/src/source/rvault_exception.cpp.o: CMakeFiles/rvault.dir/flags.make
 CMakeFiles/rvault.dir/src/source/rvault_exception.cpp.o: ../src/source/rvault_exception.cpp
 CMakeFiles/rvault.dir/src/source/rvault_exception.cpp.o: CMakeFiles/rvault.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mikewizzarrd/GitHub/RVault/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/rvault.dir/src/source/rvault_exception.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mikewizzarrd/GitHub/RVault/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/rvault.dir/src/source/rvault_exception.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/rvault.dir/src/source/rvault_exception.cpp.o -MF CMakeFiles/rvault.dir/src/source/rvault_exception.cpp.o.d -o CMakeFiles/rvault.dir/src/source/rvault_exception.cpp.o -c /home/mikewizzarrd/GitHub/RVault/src/source/rvault_exception.cpp
 
 CMakeFiles/rvault.dir/src/source/rvault_exception.cpp.i: cmake_force
@@ -184,7 +184,7 @@ CMakeFiles/rvault.dir/src/source/rvault_exception.cpp.s: cmake_force
 CMakeFiles/rvault.dir/src/source/rvault_ui.cpp.o: CMakeFiles/rvault.dir/flags.make
 CMakeFiles/rvault.dir/src/source/rvault_ui.cpp.o: ../src/source/rvault_ui.cpp
 CMakeFiles/rvault.dir/src/source/rvault_ui.cpp.o: CMakeFiles/rvault.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mikewizzarrd/GitHub/RVault/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/rvault.dir/src/source/rvault_ui.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mikewizzarrd/GitHub/RVault/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/rvault.dir/src/source/rvault_ui.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/rvault.dir/src/source/rvault_ui.cpp.o -MF CMakeFiles/rvault.dir/src/source/rvault_ui.cpp.o.d -o CMakeFiles/rvault.dir/src/source/rvault_ui.cpp.o -c /home/mikewizzarrd/GitHub/RVault/src/source/rvault_ui.cpp
 
 CMakeFiles/rvault.dir/src/source/rvault_ui.cpp.i: cmake_force
@@ -222,7 +222,7 @@ rvault: CMakeFiles/rvault.dir/src/source/rvault_ui.cpp.o
 rvault: CMakeFiles/rvault.dir/build.make
 rvault: /usr/lib/x86_64-linux-gnu/libsodium.so
 rvault: CMakeFiles/rvault.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mikewizzarrd/GitHub/RVault/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable rvault"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mikewizzarrd/GitHub/RVault/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable rvault"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/rvault.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -234,6 +234,6 @@ CMakeFiles/rvault.dir/clean:
 .PHONY : CMakeFiles/rvault.dir/clean
 
 CMakeFiles/rvault.dir/depend:
-	cd /home/mikewizzarrd/GitHub/RVault/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mikewizzarrd/GitHub/RVault /home/mikewizzarrd/GitHub/RVault /home/mikewizzarrd/GitHub/RVault/cmake-build-debug /home/mikewizzarrd/GitHub/RVault/cmake-build-debug /home/mikewizzarrd/GitHub/RVault/cmake-build-debug/CMakeFiles/rvault.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/mikewizzarrd/GitHub/RVault/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mikewizzarrd/GitHub/RVault /home/mikewizzarrd/GitHub/RVault /home/mikewizzarrd/GitHub/RVault/build /home/mikewizzarrd/GitHub/RVault/build /home/mikewizzarrd/GitHub/RVault/build/CMakeFiles/rvault.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/rvault.dir/depend
 

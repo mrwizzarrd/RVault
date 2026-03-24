@@ -51,7 +51,8 @@ public:
      *
      *     const char *master_pword :
      *          Master password for vault
-     *
+     *     RVaultHeader header:
+     *          The head of a rvault file
      * Process:
      * Create salt
      * Derive key from master password
@@ -59,7 +60,7 @@ public:
      * Encrypt auth phrase and generate nonce
      *
      */
-    bool create(const std::string& path, const char *master_pword);
+    bool create(const std::string& path, const char *master_pword, RVaultHeader& header);
 
     /*
      * Arguments:
@@ -69,13 +70,15 @@ public:
      *          Master password for vault
      *     std::vector<RVaultEntry>* entries :
      *          Pointer to vector of vault entries
+     *     RVaultHeader header:
+     *          The head of a rvault file
      *
      *     Loads file into memory
      *     Writes data to header property
      *     Adds an entry to entries vector for each entry in file
      *
      */
-    bool open(const std::string& path, const char *master_pword, std::vector<RVaultEntryEncrypted>* entries);
+    bool open(const std::string& path, const char *master_pword, std::vector<RVaultEntryEncrypted>* entries, RVaultHeader& header);
 
     /*
      * Updates the .rvault file with the up to date list of entries, and header

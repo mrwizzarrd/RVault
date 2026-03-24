@@ -10,6 +10,8 @@
 #ifndef RVAULT_RVAULT_VAULT_H
 #define RVAULT_RVAULT_VAULT_H
 
+#include <ctime>
+
 #include "../headers/rvault_constants.h"
 #include "../headers/rvault_crypto.h"
 #include <vector>
@@ -26,6 +28,7 @@ typedef struct {
     uint8_t auth_nonce[NONCE_SIZE];
     uint8_t auth_phrase[AUTH_PHRASE_CIPHER_SIZE];
     uint32_t entry_count;
+    std::time_t login_time;
 } RVaultHeader;
 
 

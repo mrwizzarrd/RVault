@@ -2,38 +2,50 @@
 #include "../headers/rvault_vault.h"
 #include "../headers/rvault_file.h"
 #include "../headers/rvault_session.h"
+#include "../headers/rvault_ui.h"
 
 #include <filesystem>
 #include <cstring>
 #include "../headers/rvault_exception.h"
+#include <ctime>
 
 namespace fs = std::filesystem;
 
-RVaultSession::RVaultSession(const char* master_password) {
+RVaultSession::RVaultSession(std::string& master_password) {
     pth = TESTING_PATH;
-
+    std::time_t login_time;
     RVaultFile vault_file;
     bool open;
     if (!fs::exists(pth)) {
         std::cout << "No User Detected, Initiating First Time Setup\n";
 
-        vault_file.create(pth, master_password);
+        std::string userName;
+        firstTimeSetup(userName, master_password);
+        strncpy(reinterpret_cast<char *>(header.owner), userName.c_str(), VAULT_OWNER_NAME_MAX_LEN - 1);
+
+        vault_file.create(pth, master_password.c_str(), this->header);
     } else {
-        open = vault_file.open(pth, master_password, &this->entries);
+        master_password = get_master_password();
+        open = vault_file.open(pth, master_password.c_str(), &this->entries, this->header);
         if (!open) {
-            std::cout << "Error\n";
+            std::cout << "Error rvault_session.cpp line 29\n";
             throw GenericException("Failed to Open File");
         }
+        std::cout << "Welcome Back, " << bytes_to_string(header.owner) << "!\n";
     }
-    header = vault_file.getHeader();
 
-    rvault_derive_key(master_password, header.salt, key, KEY_SIZE);
+    rvault_derive_key(master_password.c_str(), header.salt, key, KEY_SIZE);
+    login_time = std::time(nullptr);
+    this->header.login_time = login_time;
 }
 
 RVaultSession::~RVaultSession() {
     RVaultFile file;
 
     file.save(this, pth);
+    for (auto & entry : entries) {
+        sodium_memzero(&entry, sizeof(RVaultEntryEncrypted));
+    }
     sodium_memzero(&entries, entries.size());
 }
 
@@ -98,4 +110,8 @@ bool RVaultSession::removeEntry(const std::string& name) {
 
 std::vector<RVaultEntryEncrypted> RVaultSession::getEntries() const {
     return entries;
+}
+
+RVaultHeader RVaultSession::getHeader() const {
+    return this->header;
 }
