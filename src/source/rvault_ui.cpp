@@ -1,9 +1,12 @@
 #include <iostream>
 #include "../headers/rvault_ui.h"
+
+#include <cstring>
 #include <termios.h>
 #include <unistd.h>
 #include "../headers/rvault_platform.h"
 #include "../headers/rvault_constants.h"
+#include "../headers/rvault_exception.h"
 #include "../headers/rvault_session.h"
 
 
@@ -50,23 +53,34 @@ std::string get_master_password() {
     return quietPrompt("Enter Master Password: ");
 }
 
+void press_enter_to_continue() {
+    std::cout << "Press Enter To Continue...";
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+}
+
 
 void firstTimeSetup(std::string& nameOut, std::string& masterOut) {
     nameOut = prompt("Name: ");
     masterOut = get_master_password();
 }
 
-void displayEntries(RVaultSession *session) {
-    if (session->getEntries().empty()) {
+void displayEntries(RVaultSession& session) {
+    if (session.getEntries().empty()) {
         return;
     }
     int i = 1;
-    for (RVaultEntryEncrypted entry : session->getEntries()) {
+    for (RVaultEntryEncrypted entry : session.getEntries()) {
         RVaultEntryPlain plaintext_entry;
-        session->decryptEntry(entry, &plaintext_entry);
-        std::cout << "Entry Name: " << plaintext_entry.entry_name << "| Entry Username: " << plaintext_entry.username <<"\n";
+        try {
+            session.decryptEntry(entry, &plaintext_entry);
+        }catch (GenericException e) {
+            std::cout << e.what();
+        }
+
+        std::cout << "Entry Name: " << plaintext_entry.entry_name << " | Entry Username: " << plaintext_entry.username <<"\n";
         sodium_memzero(&plaintext_entry, sizeof(RVaultEntryPlain));
     }
+    press_enter_to_continue();
 }
 
 /*
@@ -92,20 +106,27 @@ int mainMenu() {
                  "Input >";
 
     int choice;
-    std::cin >> choice;
+    std::string line;
+    std::getline(std::cin, line);
+
+    try {
+        choice = std::stoi(line);
+    } catch (...) {
+        return -1;
+    }
     return choice;
 }
 
-void addNewEntry(RVaultSession session) {
-    RVaultEntryEncrypted* newEntry;
-    std::cout << "Enter Name of New Entry: ";
+void addNewEntry(RVaultSession& session) {
+    RVaultEntryEncrypted newEntry;
+    RVaultEntryPlain plainEntry;
     std::string name, username, password, password_confirm;
     name = prompt("Enter Name of Entry: ");
     username = prompt("Enter Username: ");
 
     while (true) {
         password = quietPrompt("Enter Password: ");
-        password_confirm = quietPrompt("Re enter Password");
+        password_confirm = quietPrompt("Re enter Password: ");
 
         if (password != password_confirm) {
             std::cout << "Passwords do not match, try again\n";
@@ -114,10 +135,17 @@ void addNewEntry(RVaultSession session) {
         break;
     }
 
-    char name_char[NAME_MAX], uname_char[MAX_USERNAME_LEN], pword_char[MAX_PASSWORD_LEN];
-    //TODO: after getting input for entry information, encapsulate and encrypt that entry
+    memset(&plainEntry, 0, sizeof(RVaultEntryPlain));
+    memcpy(plainEntry.entry_name, name.c_str(), name.length());
+    memcpy(plainEntry.username, username.c_str(), username.length());
+    memcpy(plainEntry.password, password.c_str(), password.length());
 
+    memset(&newEntry, 0, sizeof(RVaultEntryPlain));
+    session.encryptEntry(plainEntry, &newEntry);
+    session.addEntry(&newEntry);
 
+    std::cout << "Entry Added!\n";
+    press_enter_to_continue();
 }
 
 

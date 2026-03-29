@@ -2327,6 +2327,9 @@ CMakeFiles/rvault.dir/src/source/rvault_ui.cpp.o
  /home/mikewizzarrd/GitHub/RVault/src/headers/rvault_vault.h
  /usr/include/c++/11/optional
  /usr/include/c++/11/bits/enable_special_members.h
+ /usr/include/c++/11/cstring
+ /usr/include/string.h
+ /usr/include/strings.h
  /usr/include/termios.h
  /usr/include/x86_64-linux-gnu/bits/termios.h
  /usr/include/x86_64-linux-gnu/bits/termios-struct.h
@@ -2349,5 +2352,6 @@ CMakeFiles/rvault.dir/src/source/rvault_ui.cpp.o
  /usr/include/linux/close_range.h
  /home/mikewizzarrd/GitHub/RVault/src/headers/rvault_platform.h
  /home/mikewizzarrd/GitHub/RVault/src/headers/rvault_constants.h
+ /home/mikewizzarrd/GitHub/RVault/src/headers/rvault_exception.h
  /home/mikewizzarrd/GitHub/RVault/src/headers/rvault_session.h
 

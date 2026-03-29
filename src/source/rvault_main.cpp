@@ -37,6 +37,7 @@ int main(void){
             clear();
             int main_menu_choice = mainMenu();
 
+            std::cout << "Choice: " << main_menu_choice << std::endl;
 
             if (main_menu_choice == 7) {
                 break;
@@ -45,8 +46,10 @@ int main(void){
 
             switch (main_menu_choice) {
                 case 1:
-                    displayEntries(session);
+                    displayEntries(*session);
+                    continue;
                 case 2:
+                    addNewEntry(*session);
                     continue;
                 case 3:
                     continue;
@@ -57,6 +60,7 @@ int main(void){
                 case 6:
                     continue;
                 default:
+                    std::cout << "Invalid Input!\n";
                     break;
 
             }

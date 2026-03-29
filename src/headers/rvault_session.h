@@ -38,6 +38,11 @@ public:
     RVaultHeader getHeader() const;
 
     /*
+     * Wraps data in an encrypted entry structure
+     */
+    bool encryptEntry(RVaultEntryPlain entry, RVaultEntryEncrypted* out) const;
+
+    /*
      * Adds an encrypted entry to the session's entry list
      */
     bool addEntry(RVaultEntryEncrypted* entry);

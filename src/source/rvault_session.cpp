@@ -49,6 +49,44 @@ RVaultSession::~RVaultSession() {
     sodium_memzero(&entries, entries.size());
 }
 
+bool RVaultSession::encryptEntry(RVaultEntryPlain entry, RVaultEntryEncrypted* out) const { //TODO: REFACTOR THIS TO MAKE IT LESS COMPLICATED
+    uint8_t name_ciphertext[MAX_NAME_LEN + CIPHER_SIZE];
+    uint8_t name_nonce[NONCE_SIZE];
+    unsigned long long name_ciphertextLen;
+    uint8_t username_ciphertext[MAX_USERNAME_LEN + CIPHER_SIZE];
+    uint8_t username_nonce[NONCE_SIZE];
+    unsigned long long username_ciphertextLen;
+    uint8_t pw_ciphertext[MAX_PASSWORD_LEN + CIPHER_SIZE];
+    uint8_t pw_nonce[NONCE_SIZE];
+    unsigned long long pw_ciphertextLen;
+
+    int status = rvault_encrypt(entry.entry_name, MAX_NAME_LEN, key, name_ciphertext, &name_ciphertextLen, name_nonce);
+    if (status != 0) {
+        throw GenericException("Failed To Encrypt Entry");
+    }
+    status = rvault_encrypt(entry.username, MAX_USERNAME_LEN, key, username_ciphertext, &username_ciphertextLen, username_nonce);
+    if (status != 0) {
+        throw GenericException("Failed To Encrypt Entry");
+    }
+    status = rvault_encrypt(entry.password, MAX_PASSWORD_LEN, key, pw_ciphertext, &pw_ciphertextLen, pw_nonce);
+    if (status != 0) {
+        throw GenericException("Failed To Encrypt Entry");
+    }
+    out->entry_name_cipher_len = static_cast<unsigned int>(name_ciphertextLen);
+    out->username_cipher_len = static_cast<unsigned int>(username_ciphertextLen);
+    out->password_cipher_len = static_cast<unsigned int>(pw_ciphertextLen);
+
+    memcpy(out->entry_name_cipher, name_ciphertext, name_ciphertextLen);
+    memcpy(out->entry_name_nonce, name_nonce, NONCE_SIZE);
+    memcpy(out->username_cipher, username_ciphertext, username_ciphertextLen);
+    memcpy(out->username_nonce, username_nonce, NONCE_SIZE);
+    memcpy(out->password_cipher, pw_ciphertext, pw_ciphertextLen);
+    memcpy(out->password_nonce, pw_nonce, NONCE_SIZE);
+
+    sodium_memzero(&entry, sizeof(RVaultEntryPlain));
+    return true;
+}
+
 bool RVaultSession::addEntry(RVaultEntryEncrypted* entry) {
     if (!entry) {
         return false;
@@ -77,6 +115,7 @@ bool RVaultSession::decryptEntry(RVaultEntryEncrypted entry, RVaultEntryPlain* o
     if (status != 0) {
         throw GenericException("Decryption of Password Failed");
     }
+    memset(out, 0, sizeof(RVaultEntryPlain));
     memcpy(out->entry_name, name_plaintext, name_plaintextLen);
     memcpy(out->password, pw_plaintext, pw_plaintextLen);
     memcpy(out->username, username_plaintext, username_plaintextLen);

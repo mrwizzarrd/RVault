@@ -2318,6 +2318,9 @@ CMakeFiles/rvault.dir/src/source/rvault_ui.cpp.o: ../src/source/rvault_ui.cpp \
   ../src/headers/rvault_vault.h \
   /usr/include/c++/11/optional \
   /usr/include/c++/11/bits/enable_special_members.h \
+  /usr/include/c++/11/cstring \
+  /usr/include/string.h \
+  /usr/include/strings.h \
   /usr/include/termios.h \
   /usr/include/x86_64-linux-gnu/bits/termios.h \
   /usr/include/x86_64-linux-gnu/bits/termios-struct.h \
@@ -2340,6 +2343,7 @@ CMakeFiles/rvault.dir/src/source/rvault_ui.cpp.o: ../src/source/rvault_ui.cpp \
   /usr/include/linux/close_range.h \
   ../src/headers/rvault_platform.h \
   ../src/headers/rvault_constants.h \
+  ../src/headers/rvault_exception.h \
   ../src/headers/rvault_session.h
 
 

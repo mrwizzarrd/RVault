@@ -46,7 +46,7 @@ void addNewEntry();
  * ...
  * Entry N.) ExampleNameN
  */
-void displayEntries(RVaultSession *session);
+void displayEntries(RVaultSession& session);
 
 /*
  * Selections:
@@ -66,7 +66,7 @@ int mainMenu();
 /*
  * Uses the addEntry method from the RVaultSession Class
  */
-void addNewEntry(RVaultSession session);
+void addNewEntry(RVaultSession& session);
 
 
 #endif //RVAULT_RVAULT_UI_H
