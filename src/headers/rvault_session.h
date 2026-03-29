@@ -52,6 +52,12 @@ public:
      */
     bool removeEntry(const std::string& name);
 
+    /*
+     * Creates a New Entry
+     */
+
+
+
 
 private:
     std::vector<RVaultEntryEncrypted> entries;

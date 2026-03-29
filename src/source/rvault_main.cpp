@@ -16,7 +16,7 @@ namespace fs = std::filesystem;
 int main(void){
     int failed_attempts = 0;
     bool unlocked = false;
-    RVaultSession* session;
+    RVaultSession* session = nullptr;
     while (!unlocked && failed_attempts <= 5) {
         try {
             std::string masterPwd;
@@ -33,6 +33,34 @@ int main(void){
         }
     }
     if (unlocked) {
+        while (true) { //main loop
+            clear();
+            int main_menu_choice = mainMenu();
+
+
+            if (main_menu_choice == 7) {
+                break;
+            }
+
+
+            switch (main_menu_choice) {
+                case 1:
+                    displayEntries(session);
+                case 2:
+                    continue;
+                case 3:
+                    continue;
+                case 4:
+                    continue;
+                case 5:
+                    continue;
+                case 6:
+                    continue;
+                default:
+                    break;
+
+            }
+        }
 
     }
 

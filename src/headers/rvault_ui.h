@@ -4,6 +4,7 @@
 #include <iostream>
 #include "rvault_crypto.h"
 #include "rvault_vault.h"
+#include "rvault_session.h"
 
 //Helper Function for Converting bytes to text
 std::string bytes_to_string(const uint8_t* bytes);
@@ -11,6 +12,10 @@ std::string bytes_to_string(const uint8_t* bytes);
 
 //CLI Pasword Getter
 std::string get_master_password();
+
+
+//clears terminal
+void clear();
 
 
 //First Time Setup For User
@@ -41,8 +46,27 @@ void addNewEntry();
  * ...
  * Entry N.) ExampleNameN
  */
-void displayEntries();
+void displayEntries(RVaultSession *session);
 
+/*
+ * Selections:
+ * 1 - List Entries
+ * 2 - Add Entry
+ * 3 - Remove Entry
+ * 4 - Show Entry Password
+ * 5 - Delete Vault
+ * 6 - Change Master Password
+ * 7 - Exit
+ *
+ *  Returns selection as an int
+ */
+int mainMenu();
+
+
+/*
+ * Uses the addEntry method from the RVaultSession Class
+ */
+void addNewEntry(RVaultSession session);
 
 
 #endif //RVAULT_RVAULT_UI_H

@@ -1321,7 +1321,8 @@ CMakeFiles/rvault.dir/src/source/rvault_main.cpp.o: ../src/source/rvault_main.cp
   ../src/headers/rvault_file.h \
   ../src/headers/rvault_ui.h \
   ../src/headers/rvault_crypto.h \
-  ../src/headers/rvault_vault.h
+  ../src/headers/rvault_vault.h \
+  ../src/headers/rvault_session.h
 
 CMakeFiles/rvault.dir/src/source/rvault_platform.c.o: ../src/source/rvault_platform.c \
   /usr/include/stdc-predef.h \
@@ -2277,6 +2278,46 @@ CMakeFiles/rvault.dir/src/source/rvault_ui.cpp.o: ../src/source/rvault_ui.cpp \
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
   /usr/include/c++/11/bits/fstream.tcc \
+  ../src/headers/rvault_session.h \
+  /usr/include/c++/11/filesystem \
+  /usr/include/c++/11/bits/fs_fwd.h \
+  /usr/include/c++/11/chrono \
+  /usr/include/c++/11/ratio \
+  /usr/include/c++/11/limits \
+  /usr/include/c++/11/bits/parse_numbers.h \
+  /usr/include/c++/11/bits/fs_path.h \
+  /usr/include/c++/11/utility \
+  /usr/include/c++/11/bits/stl_relops.h \
+  /usr/include/c++/11/locale \
+  /usr/include/c++/11/bits/locale_facets_nonio.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h \
+  /usr/include/libintl.h \
+  /usr/include/c++/11/bits/locale_facets_nonio.tcc \
+  /usr/include/c++/11/bits/locale_conv.h \
+  /usr/include/c++/11/bits/unique_ptr.h \
+  /usr/include/c++/11/tuple \
+  /usr/include/c++/11/array \
+  /usr/include/c++/11/bits/uses_allocator.h \
+  /usr/include/c++/11/bits/invoke.h \
+  /usr/include/c++/11/iomanip \
+  /usr/include/c++/11/bits/quoted_string.h \
+  /usr/include/c++/11/sstream \
+  /usr/include/c++/11/bits/sstream.tcc \
+  /usr/include/c++/11/codecvt \
+  /usr/include/c++/11/ext/concurrence.h \
+  /usr/include/c++/11/bits/shared_ptr.h \
+  /usr/include/c++/11/bits/shared_ptr_base.h \
+  /usr/include/c++/11/bits/allocated_ptr.h \
+  /usr/include/c++/11/bits/refwrap.h \
+  /usr/include/c++/11/ext/aligned_buffer.h \
+  /usr/include/c++/11/bits/fs_dir.h \
+  /usr/include/c++/11/bits/fs_ops.h \
+  ../src/headers/rvault_constants.h \
+  ../src/headers/rvault_file.h \
+  ../src/headers/rvault_vault.h \
+  /usr/include/c++/11/optional \
+  /usr/include/c++/11/bits/enable_special_members.h \
   /usr/include/termios.h \
   /usr/include/x86_64-linux-gnu/bits/termios.h \
   /usr/include/x86_64-linux-gnu/bits/termios-struct.h \
@@ -2298,7 +2339,8 @@ CMakeFiles/rvault.dir/src/source/rvault_ui.cpp.o: ../src/source/rvault_ui.cpp \
   /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/linux/close_range.h \
   ../src/headers/rvault_platform.h \
-  ../src/headers/rvault_constants.h
+  ../src/headers/rvault_constants.h \
+  ../src/headers/rvault_session.h
 
 
 /usr/include/linux/close_range.h:
