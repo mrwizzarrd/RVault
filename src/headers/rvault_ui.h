@@ -55,7 +55,7 @@ void displayEntries(RVaultSession& session);
  * 3 - Remove Entry
  * 4 - Show Entry Password
  * 5 - Delete Vault
- * 6 - Change Master Password
+ * 6 - Generate Password
  * 7 - Exit
  *
  *  Returns selection as an int
@@ -67,6 +67,11 @@ int mainMenu();
  * Uses the addEntry method from the RVaultSession Class
  */
 void addNewEntry(RVaultSession& session);
+
+/*
+ * Removes entry from session
+ */
+void rmEntry(RVaultSession& session);
 
 
 #endif //RVAULT_RVAULT_UI_H

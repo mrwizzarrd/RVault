@@ -1,6 +1,0 @@
-TODO List
-
--TODO: Change encryption from crypto_secretbox_easy to ChaCha20 (DONE)
--TODO: File i/o
--TODO: Password Object Class
--TODO: QT UI

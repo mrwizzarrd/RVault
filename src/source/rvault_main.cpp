@@ -52,6 +52,7 @@ int main(void){
                     addNewEntry(*session);
                     continue;
                 case 3:
+                    rmEntry(*session);
                     continue;
                 case 4:
                     continue;
@@ -67,5 +68,8 @@ int main(void){
         }
 
     }
+
+    delete session;
+    return 0;
 
 }

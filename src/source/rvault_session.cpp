@@ -46,7 +46,7 @@ RVaultSession::~RVaultSession() {
     for (auto & entry : entries) {
         sodium_memzero(&entry, sizeof(RVaultEntryEncrypted));
     }
-    sodium_memzero(&entries, entries.size());
+    sodium_memzero(entries.data(), entries.size() * sizeof(RVaultEntryEncrypted));
 }
 
 bool RVaultSession::encryptEntry(RVaultEntryPlain entry, RVaultEntryEncrypted* out) const { //TODO: REFACTOR THIS TO MAKE IT LESS COMPLICATED
@@ -131,6 +131,7 @@ bool RVaultSession::removeEntry(const std::string& name) {
         try {
             decryptEntry(entries.at(i), unencrypt);
         } catch (GenericException& e) {
+            sodium_memzero(unencrypt, sizeof(RVaultEntryPlain));
             delete unencrypt;
             throw;
         }
@@ -141,6 +142,7 @@ bool RVaultSession::removeEntry(const std::string& name) {
             delete unencrypt;
             return true;
         }
+        sodium_memzero(unencrypt, sizeof(RVaultEntryPlain));
         delete unencrypt;
     }
     return false;

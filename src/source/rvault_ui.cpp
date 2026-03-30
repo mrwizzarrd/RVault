@@ -89,7 +89,7 @@ void displayEntries(RVaultSession& session) {
  * 2 - Add Entry
  * 3 - Remove Entry
  * 5 - Delete Vault
- * 6 - Change Master Password
+ * 6 - Generate Password
  * 7 - Exit
  */
 int mainMenu() {
@@ -101,7 +101,7 @@ int mainMenu() {
                  "3 - Remove Entry\n"
                  "4 - Show Entry Password\n"
                  "5 - Delete Vault\n"
-                 "6 - Change Master Password\n"
+                 "6 - Generate Password\n"
                  "7 - Exit\n"
                  "Input >";
 
@@ -145,6 +145,16 @@ void addNewEntry(RVaultSession& session) {
     session.addEntry(&newEntry);
 
     std::cout << "Entry Added!\n";
+    press_enter_to_continue();
+}
+
+void rmEntry(RVaultSession& session) {
+    std::string entryname = prompt("Enter Name of Entry to Remove: ");
+    if (session.removeEntry(entryname)) {
+        std::cout << "Entry Removed\n";
+    } else {
+        std::cout << "Entry Not Found\n";
+    }
     press_enter_to_continue();
 }
 
