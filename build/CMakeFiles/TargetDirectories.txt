@@ -1,3 +1,0 @@
-/home/mrwizzarrd/GitHub/RVault/build/CMakeFiles/rvault.dir
-/home/mrwizzarrd/GitHub/RVault/build/CMakeFiles/edit_cache.dir
-/home/mrwizzarrd/GitHub/RVault/build/CMakeFiles/rebuild_cache.dir
