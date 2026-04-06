@@ -1,15 +1,15 @@
 # RVault Pre-Alpha TODO
 
 ## 🔴 Bugs (Fix First)
-- [ ] **Wrong sizeof in `addNewEntry()`** — `memset(&newEntry, 0, sizeof(RVaultEntryPlain))` should be `sizeof(RVaultEntryEncrypted)`
+- [x] **Wrong sizeof in `addNewEntry()`** — `memset(&newEntry, 0, sizeof(RVaultEntryPlain))` should be `sizeof(RVaultEntryEncrypted)`
 
 ---
 
 ## 🟠 Unimplemented Features
-- [ ] **Show Entry Password** — Case 4 in main menu is a stub
+- [x] **Show Entry Password** — Case 4 in main menu is a stub
 - [ ] **Delete Vault** — Case 5 in main menu is a stub
 - [ ] **Generate Password** — Case 6 in main menu is a stub
-- [ ] **`getEntry()`** — declared in `rvault_session.h` but never implemented in `rvault_session.cpp`
+- [x] **`getEntry()`** — declared in `rvault_session.h` but never implemented in `rvault_session.cpp`
 
 ---
 

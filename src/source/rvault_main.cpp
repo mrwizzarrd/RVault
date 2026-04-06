@@ -55,6 +55,7 @@ int main(void){
                     rmEntry(*session);
                     continue;
                 case 4:
+                    showEntry(*session);
                     continue;
                 case 5:
                     continue;
@@ -70,6 +71,7 @@ int main(void){
     }
 
     delete session;
+    clear();
     return 0;
 
 }

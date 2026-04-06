@@ -4,6 +4,8 @@
 #include <cstring>
 #include <termios.h>
 #include <unistd.h>
+
+#include "../headers/rvault_auth.h"
 #include "../headers/rvault_platform.h"
 #include "../headers/rvault_constants.h"
 #include "../headers/rvault_exception.h"
@@ -73,7 +75,7 @@ void displayEntries(RVaultSession& session) {
         RVaultEntryPlain plaintext_entry;
         try {
             session.decryptEntry(entry, &plaintext_entry);
-        }catch (GenericException e) {
+        } catch (GenericException& e) {
             std::cout << e.what();
         }
 
@@ -99,7 +101,7 @@ int mainMenu() {
     std::cout << "1 - List Entries\n"
                  "2 - Add Entry\n"
                  "3 - Remove Entry\n"
-                 "4 - Show Entry Password\n"
+                 "4 - Show Entry\n"
                  "5 - Delete Vault\n"
                  "6 - Generate Password\n"
                  "7 - Exit\n"
@@ -140,7 +142,7 @@ void addNewEntry(RVaultSession& session) {
     memcpy(plainEntry.username, username.c_str(), username.length());
     memcpy(plainEntry.password, password.c_str(), password.length());
 
-    memset(&newEntry, 0, sizeof(RVaultEntryPlain));
+    memset(&newEntry, 0, sizeof(RVaultEntryEncrypted));
     session.encryptEntry(plainEntry, &newEntry);
     session.addEntry(&newEntry);
 
@@ -152,6 +154,37 @@ void rmEntry(RVaultSession& session) {
     std::string entryname = prompt("Enter Name of Entry to Remove: ");
     if (session.removeEntry(entryname)) {
         std::cout << "Entry Removed\n";
+    } else {
+        std::cout << "Entry Not Found\n";
+    }
+    press_enter_to_continue();
+}
+
+void showEntry(RVaultSession& session) {
+    std::string entryname = prompt("Enter Name of Entry to Display: ");
+    RVaultEntryEncrypted entry;
+    if (session.getEntry(entryname, &entry)) {
+        int attempts = 0;
+        while (attempts < 5) {
+            std::string masterpass = get_master_password();
+            attempts++;
+            uint8_t key[KEY_SIZE];
+            rvault_derive_key(masterpass.c_str(), session.getHeader().salt, key, KEY_SIZE);
+            if (rvault_authenticate(session.getHeader(), key) == 0) {
+                break;
+            }
+            std::cout << "Invalid Password! (" << 5 - attempts << " attempts left)\n";
+            if (attempts == 5) {
+                press_enter_to_continue();
+                return;
+            }
+            //Future TODO: Make a 5 min timer after 5 failed attempts
+        }
+        RVaultEntryPlain decrypted;
+        session.decryptEntry(entry, &decrypted);
+        std::cout << "Entry Name: " << decrypted.entry_name << "\nEntry Username: " << decrypted.username << "\nEntry Password: " << decrypted.password << "\n";
+        sodium_memzero(&decrypted, sizeof(RVaultEntryPlain));
+
     } else {
         std::cout << "Entry Not Found\n";
     }

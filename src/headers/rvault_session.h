@@ -25,7 +25,7 @@ public:
     /*
      * returns the value of a single entry by name
      */
-    RVaultEntryEncrypted getEntry(const std::string& name);
+    bool getEntry(std::string& name, RVaultEntryEncrypted* out);
 
     /*
      * Getter method for the entries vector

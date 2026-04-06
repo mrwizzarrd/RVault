@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/rvault.dir/link.d"
   "CMakeFiles/rvault.dir/src/source/rvault_auth.cpp.o"
   "CMakeFiles/rvault.dir/src/source/rvault_auth.cpp.o.d"
   "CMakeFiles/rvault.dir/src/source/rvault_crypto.c.o"

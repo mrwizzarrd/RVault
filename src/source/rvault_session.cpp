@@ -153,6 +153,20 @@ std::vector<RVaultEntryEncrypted> RVaultSession::getEntries() const {
     return entries;
 }
 
+bool RVaultSession::getEntry(std::string& name, RVaultEntryEncrypted* out) {
+    for (RVaultEntryEncrypted entry : entries) {
+        RVaultEntryPlain plainEntry;
+        decryptEntry(entry, &plainEntry);
+        if (strcmp(name.c_str(), reinterpret_cast<char *>(plainEntry.entry_name)) == 0) { //entry found
+            sodium_memzero(&plainEntry, sizeof(RVaultEntryPlain));
+            memcpy(out, &entry, sizeof(RVaultEntryEncrypted));
+            return true;
+        }
+        sodium_memzero(&plainEntry, sizeof(RVaultEntryPlain));
+    }
+    return false;
+}
+
 RVaultHeader RVaultSession::getHeader() const {
     return this->header;
 }

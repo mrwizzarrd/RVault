@@ -74,4 +74,10 @@ void addNewEntry(RVaultSession& session);
 void rmEntry(RVaultSession& session);
 
 
+/*
+ * Displays user entry after locating it in the entry's list and authenticating master password
+ */
+void showEntry(RVaultSession& session);
+
+
 #endif //RVAULT_RVAULT_UI_H
