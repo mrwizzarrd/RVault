@@ -54,3 +54,20 @@ int rvault_random_bytes(uint8_t *out, size_t len){
     #endif
     return 0;
 }
+
+/*
+ * Buffer must be at least len + 1 bytes.
+ * Return Codes:
+ * 0: Success
+ * -1: generation error
+ */
+int rvault_random_chars(char *chars, size_t len) {
+    if (!chars || len == 0) {
+        return -1;
+    }
+    for (int i = 0; i < len; i++) {
+        chars[i] = (char) randombytes_uniform(94) + 33;
+    }
+    chars[len] = '\0';
+    return 0;
+}

@@ -18,7 +18,7 @@
   - Use `rvault_get_platform()` and `rvault_get_username()` — you already wrote these, use them
   - Store vault in appropriate user directory per platform (e.g. `~/.local/share/rvault/` on Linux, `%APPDATA%\rvault\` on Windows)
 
----
+---t
 
 ## 🟡 Platform Issues
 - [ ] **Windows — silent password input broken** — `quietPrompt()` returns `""` on Windows, needs implementation using `ReadConsoleW` with `ENABLE_ECHO_INPUT` disabled

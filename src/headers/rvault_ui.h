@@ -79,5 +79,10 @@ void rmEntry(RVaultSession& session);
  */
 void showEntry(RVaultSession& session);
 
+/*
+ * Generates a random ascii password with a user specified length
+ */
+void generatePassword(RVaultSession& session);
+
 
 #endif //RVAULT_RVAULT_UI_H

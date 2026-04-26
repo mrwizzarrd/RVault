@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/int_format.dir/link.d CMakeFiles/int_format.dir/int_format.cpp.o -o int_format  ../libclip.a -lxcb -lpthread

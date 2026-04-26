@@ -31,6 +31,11 @@ add_executable(rvault
         src/source/rvault_ui.cpp
 )
 
+# link clip
+set(CLIP_ENABLE_IMAGE OFF CACHE BOOL "" FORCE)
+add_subdirectory(external_lib/clip)
+target_link_libraries(rvault PRIVATE clip)
+
 # Find and link libsodium
 find_package(unofficial-sodium CONFIG QUIET)
 if(unofficial-sodium_FOUND)

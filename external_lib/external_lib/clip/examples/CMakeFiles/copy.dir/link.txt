@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/copy.dir/link.d CMakeFiles/copy.dir/copy.cpp.o -o copy  ../libclip.a -lxcb -lpthread

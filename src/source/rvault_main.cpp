@@ -60,6 +60,7 @@ int main(void){
                 case 5:
                     continue;
                 case 6:
+                    generatePassword(*session);
                     continue;
                 default:
                     std::cout << "Invalid Input!\n";

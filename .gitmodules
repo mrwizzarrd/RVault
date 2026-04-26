@@ -1,0 +1,3 @@
+[submodule "external_lib/clip"]
+	path = external_lib/clip
+	url = git@github.com:dacap/clip.git

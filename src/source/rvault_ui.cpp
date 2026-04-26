@@ -6,10 +6,12 @@
 #include <unistd.h>
 
 #include "../headers/rvault_auth.h"
+#include "../headers/rvault_random.h"
 #include "../headers/rvault_platform.h"
 #include "../headers/rvault_constants.h"
 #include "../headers/rvault_exception.h"
 #include "../headers/rvault_session.h"
+#include "../../external_lib/clip/clip.h"
 
 
 std::string bytes_to_string(const uint8_t* bytes) {
@@ -189,6 +191,55 @@ void showEntry(RVaultSession& session) {
         std::cout << "Entry Not Found\n";
     }
     press_enter_to_continue();
+}
+
+void generatePassword(RVaultSession& session) {
+    int length = 0;
+    while (true) {
+        try {
+            length = std::stoi(prompt("Enter length of password: "));
+            break;
+        } catch (const std::exception& e) {
+            std::cout << "Exception caught: " << e.what() << "\nTry again\n";
+        }
+    }
+    std::string password(length+1, '\0');
+    int status = rvault_random_chars(password.data(), length);
+    password.resize(length);
+    if (status != 0) {
+        throw GenericException("Failed to Generate Password");
+    }
+    std::cout << "Password: " << password << "\n";
+
+    std::string copy = prompt("Copy password to clipboard? [Y/N] (Anything else will be treated as N): ");
+    if (copy == "y" || copy == "Y") {
+        clip::set_text(password);
+    }
+
+    std::string newEntry = prompt("Create entry with password? [Y/N] (Anything else will be treated as N): ");
+    if (copy == "y" || copy == "Y") {
+        RVaultEntryEncrypted Entry;
+        RVaultEntryPlain plainEntry;
+        std::string name, username;
+        name = prompt("Enter Name of Entry: ");
+        username = prompt("Enter Username: ");
+
+        memset(&plainEntry, 0, sizeof(RVaultEntryPlain));
+        memcpy(plainEntry.entry_name, name.c_str(), name.length());
+        memcpy(plainEntry.username, username.c_str(), username.length());
+        memcpy(plainEntry.password, password.c_str(), password.length());
+
+        memset(&Entry, 0, sizeof(RVaultEntryEncrypted));
+        session.encryptEntry(plainEntry, &Entry);
+        session.addEntry(&Entry);
+
+        sodium_memzero(&plainEntry, sizeof(RVaultEntryPlain));
+        sodium_memzero(&Entry, sizeof(RVaultEntryEncrypted));
+    }
+    std::cout << "Entry Added!\n";
+    press_enter_to_continue();
+
+    sodium_memzero(&password, password.size() + 1);
 }
 
 
