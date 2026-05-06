@@ -85,3 +85,36 @@ int rvault_get_username(char *out) {
 
 #endif
 }
+
+/*
+ * Windows: %LOCALAPPDATA%\RVault
+ * Mac: ~/Library/Application Support/rvault
+ * Linux: ~/.local/share/rvault
+ */
+int rvault_get_path(char *out, size_t len) {
+    if (len != MAX_PATH) {
+        return -1;
+    }
+#if defined(RVAULT_PLATFORM_LINUX)
+    char* home = getenv("HOME");
+    if (!home) {
+        return -2; //TODO later create getpwuid fallback
+     }
+    size_t home_size = strlen(home);
+    if (len < home_size + 21) return -2;
+    for (int i = 0; i < home_size; i++) {
+        out[i] = home[i];
+    }
+    if (len < home_size + 21) return -2;
+    char rest_of_path[21] = "/.local/share/rvault/";
+    for (int i = home_size; i < home_size + 21; i++) {
+        out[i] = rest_of_path[i - home_size];
+    }
+#elif defined(RVAULT_PLATFORM_MACOS)
+#error "No MACOS Support Yet"
+#elif defined(RVAULT_PLATFORM_WINDOWS)
+#error "No Windows Support Yet"
+#endif
+
+    return 0;
+}

@@ -14,10 +14,12 @@
 ---
 
 ## 🟠 Path Handling
-- [ ] Replace hardcoded `TESTING_PATH` (`../testFiles/testing.rvault`) with real platform-aware path resolution
-  - Use `rvault_get_platform()` and `rvault_get_username()` — you already wrote these, use them
-  - Store vault in appropriate user directory per platform (e.g. `~/.local/share/rvault/` on Linux, `%APPDATA%\rvault\` on Windows)
-
+Replace hardcoded `TESTING_PATH` (`../testFiles/testing.rvault`) with real platform-aware path resolution 
+Use `rvault_get_platform()` and `rvault_get_username()` — you already wrote these, use them
+Store vault in appropriate user directory per platform (e.g. `~/.local/share/rvault/` on Linux, `%APPDATA%\rvault\` on Windows)
+- [x] Linux Path Handling
+- [ ] MacOS Path Handling
+- [ ] Windows Path Handling
 ---t
 
 ## 🟡 Platform Issues

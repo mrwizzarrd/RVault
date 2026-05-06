@@ -3,6 +3,7 @@
 #include "../headers/rvault_file.h"
 #include "../headers/rvault_session.h"
 #include "../headers/rvault_ui.h"
+#include "../headers/rvault_platform.h"
 
 #include <filesystem>
 #include <cstring>
@@ -12,7 +13,17 @@
 namespace fs = std::filesystem;
 
 RVaultSession::RVaultSession(std::string& master_password) {
-    pth = TESTING_PATH;
+    char path_char[MAX_PATH];
+    rvault_get_path(path_char, MAX_PATH);
+    std::string path = path_char;
+
+    fs::path test_path = path;
+
+    if (!fs::exists(test_path)) {
+        fs::create_directories(test_path);
+    }
+
+    pth = path + "vault.rvault";
     std::time_t login_time;
     RVaultFile vault_file;
     bool open;
