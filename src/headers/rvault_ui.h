@@ -84,5 +84,11 @@ void showEntry(RVaultSession& session);
  */
 void generatePassword(RVaultSession& session);
 
+/*
+ * UI for deleting vault
+ */
+
+void deleteVault(RVaultSession& session);
+
 
 #endif //RVAULT_RVAULT_UI_H

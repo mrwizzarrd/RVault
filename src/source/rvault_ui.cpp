@@ -4,6 +4,8 @@
 #include <cstring>
 #include <termios.h>
 #include <unistd.h>
+#include <string>
+#include <algorithm>
 
 #include "../headers/rvault_auth.h"
 #include "../headers/rvault_random.h"
@@ -240,6 +242,39 @@ void generatePassword(RVaultSession& session) {
     press_enter_to_continue();
 
     sodium_memzero(&password, password.size() + 1);
+}
+
+void deleteVault(RVaultSession& session) {
+    std::string conf = prompt("Are you sure you want to delete the vault [Y/N]? ");
+    if (tolower(conf[0]) != 'y') {
+        press_enter_to_continue();
+        return;
+    }
+
+    int attempts = 0;
+    while (attempts < 5) {
+        std::string masterpass = get_master_password();
+        attempts++;
+        uint8_t key[KEY_SIZE];
+        rvault_derive_key(masterpass.c_str(), session.getHeader().salt, key, KEY_SIZE);
+        if (rvault_authenticate(session.getHeader(), key) == 0) {
+            break;
+        }
+        std::cout << "Invalid Password! (" << 5 - attempts << " attempts left)\n";
+        if (attempts == 5) {
+            press_enter_to_continue();
+            return;
+        }
+    }
+    RVaultFile file;
+    try {
+        file.deleteFile(session.getPath());
+        std::cout << "Deleting " << session.getPath() << std::endl;
+    } catch (const GenericException& e) {
+        std::cout << e.what();
+        press_enter_to_continue();
+    }
+    press_enter_to_continue();
 }
 
 

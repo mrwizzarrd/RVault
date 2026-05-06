@@ -38,6 +38,11 @@ public:
     RVaultHeader getHeader() const;
 
     /*
+     * Getter Method for the path
+     */
+    std::filesystem::path getPath();
+
+    /*
      * Wraps data in an encrypted entry structure
      */
     bool encryptEntry(RVaultEntryPlain entry, RVaultEntryEncrypted* out) const;
@@ -57,9 +62,6 @@ public:
      */
     bool removeEntry(const std::string& name);
 
-    /*
-     * Creates a New Entry
-     */
 
 
 

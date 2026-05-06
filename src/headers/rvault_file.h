@@ -90,6 +90,11 @@ public:
      */
     void close();
 
+    /*
+     * Seleted file, frees memory for file and zeroes the memory
+     */
+    void deleteFile(const std::filesystem::path& pth);
+
     //------ Getters
 
     RVaultHeader getHeader() const;

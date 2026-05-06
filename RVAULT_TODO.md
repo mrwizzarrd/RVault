@@ -7,8 +7,8 @@
 
 ## 🟠 Unimplemented Features
 - [x] **Show Entry Password** — Case 4 in main menu is a stub
-- [ ] **Delete Vault** — Case 5 in main menu is a stub
-- [ ] **Generate Password** — Case 6 in main menu is a stub
+- [x] **Delete Vault** — Case 5 in main menu is a stub
+- [x] **Generate Password** — Case 6 in main menu is a stub
 - [x] **`getEntry()`** — declared in `rvault_session.h` but never implemented in `rvault_session.cpp`
 
 ---

@@ -33,7 +33,8 @@ int main(void){
         }
     }
     if (unlocked) {
-        while (true) { //main loop
+        bool loop = true;
+        while (loop) { //main loop
             clear();
             int main_menu_choice = mainMenu();
 
@@ -58,6 +59,8 @@ int main(void){
                     showEntry(*session);
                     continue;
                 case 5:
+                    deleteVault(*session);
+                    loop = false;
                     continue;
                 case 6:
                     generatePassword(*session);

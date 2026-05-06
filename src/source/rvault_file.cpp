@@ -128,6 +128,14 @@ void RVaultFile::close(){
     if (file.is_open()) file.close();
 }
 
+void RVaultFile::deleteFile(const std::filesystem::path& pth) {
+    file.close();
+    bool status = fs::remove(pth);
+    if (!status) {
+        throw GenericException("Cannot Delete File");
+    }
+}
+
 RVaultHeader RVaultFile::getHeader() const {
     return header;
 }

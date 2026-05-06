@@ -28,7 +28,7 @@ RVaultSession::RVaultSession(std::string& master_password) {
         master_password = get_master_password();
         open = vault_file.open(pth, master_password.c_str(), &this->entries, this->header);
         if (!open) {
-            std::cout << "Error rvault_session.cpp line 29\n";
+            std::cout << "Error rvault_session.cpp line 31\n";
             throw GenericException("Failed to Open File");
         }
         std::cout << "Welcome Back, " << bytes_to_string(header.owner) << "!\n";
@@ -40,9 +40,12 @@ RVaultSession::RVaultSession(std::string& master_password) {
 }
 
 RVaultSession::~RVaultSession() {
-    RVaultFile file;
 
-    file.save(this, pth);
+    if (fs::exists(pth)) {
+        RVaultFile file;
+
+        file.save(this, pth);
+    }
     for (auto & entry : entries) {
         sodium_memzero(&entry, sizeof(RVaultEntryEncrypted));
     }
@@ -148,6 +151,10 @@ bool RVaultSession::removeEntry(const std::string& name) {
     return false;
 }
 
+
+std::filesystem::path RVaultSession::getPath() {
+    return pth;
+}
 
 std::vector<RVaultEntryEncrypted> RVaultSession::getEntries() const {
     return entries;
