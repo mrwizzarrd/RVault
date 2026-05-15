@@ -8,7 +8,7 @@
 #define KEY_SIZE crypto_aead_xchacha20poly1305_ietf_KEYBYTES
 #define CIPHER_SIZE crypto_aead_xchacha20poly1305_ietf_ABYTES
 #define AUTH_PHRASE_SIZE 16
-#define RVAULT_VERSION "pre-alpha-3"
+#define RVAULT_VERSION "pre-alpha-4"
 #define AUTH_PHRASE_CIPHER_SIZE (AUTH_PHRASE_SIZE + CIPHER_SIZE)
 #define MAX_NAME_LEN 128
 #define MAX_USERNAME_LEN 128
@@ -21,4 +21,4 @@
 #define MAX_PATH_LINUX 4096
 #define MAX_PATH_WINDOWS 260
 #define MAX_PATH_MACOS 1024
-#endif //RVAULT_RVAULT_CONSTANTS_H
+#endif

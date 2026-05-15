@@ -56,8 +56,9 @@ else()
     else()
         set(CPU_BIT 32)
     endif()
-    set(INCLUDE_DIR "libsodium/libsodium-win${CPU_BIT}/include")
-    set(LIB_SODIUM "libsodium/libsodium-win${CPU_BIT}/lib/libsodium.a")
+    target_link_options(rvault PRIVATE -static-libgcc -static-libstdc++ -static)
+    set(INCLUDE_DIR "${CMAKE_SOURCE_DIR}/libsodium/libsodium-win${CPU_BIT}/include")
+    set(LIB_SODIUM "${CMAKE_SOURCE_DIR}/libsodium/libsodium-win${CPU_BIT}/lib/libsodium.a")
     target_include_directories(rvault PRIVATE ${INCLUDE_DIR})
     target_link_libraries(rvault PRIVATE 
         ${LIB_SODIUM}

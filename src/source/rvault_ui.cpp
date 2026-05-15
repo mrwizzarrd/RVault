@@ -2,8 +2,6 @@
 #include "../headers/rvault_ui.h"
 
 #include <cstring>
-#include <termios.h>
-#include <unistd.h>
 #include <string>
 #include <algorithm>
 
@@ -37,8 +35,8 @@ std::string prompt(const std::string& prompt) {
 std::string quietPrompt(const std::string& prompt) {
     HANDLE hStdin = GetStdHandle(STD_INPUT_HANDLE);
     DWORD mode = 0;
-    wchar_t input[MAX_PASSWORD_LEN];
-    SetConsoleMode(hStdin, mode & (~ENABLE_ECHO_OUTPUT));
+    GetConsoleMode(hStdin, &mode);
+    SetConsoleMode(hStdin, mode & (~ENABLE_ECHO_INPUT));
     std::cout << prompt << std::flush;
     wchar_t wbuffer[MAX_PASSWORD_LEN];
     DWORD charsRead = 0;
@@ -49,7 +47,9 @@ std::string quietPrompt(const std::string& prompt) {
             charsRead--;
         }
         if (charsRead > 0) {
-            int sizeNeeded = WideCharToMultiByte(CP_UTF8, 0, wbuffer, (int) charsRead, &result[0], sizeNeeded, NULL, NULL);
+            int sizeNeeded = WideCharToMultiByte(CP_UTF8, 0, wbuffer, (int) charsRead, NULL, 0, NULL, NULL);
+            result.resize(sizeNeeded);
+            WideCharToMultiByte(CP_UTF8, 0, wbuffer, (int) charsRead, &result[0], sizeNeeded, NULL, NULL);
         }
     }
     SetConsoleMode(hStdin, mode);
@@ -57,6 +57,8 @@ std::string quietPrompt(const std::string& prompt) {
     return result;
 }
 #else
+#include <termios.h>
+#include <unistd.h>
 std::string quietPrompt(const std::string& prompt) {
     std::cout << prompt << std::flush;
     termios old_t{}, new_t{};

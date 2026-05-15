@@ -34,10 +34,10 @@ RVaultSession::RVaultSession(std::string& master_password) {
         firstTimeSetup(userName, master_password);
         strncpy(reinterpret_cast<char *>(header.owner), userName.c_str(), VAULT_OWNER_NAME_MAX_LEN - 1);
 
-        vault_file.create(pth, master_password.c_str(), this->header);
+        vault_file.create(pth.string(), master_password.c_str(), this->header);
     } else {
         master_password = get_master_password();
-        open = vault_file.open(pth, master_password.c_str(), &this->entries, this->header);
+        open = vault_file.open(pth.string(), master_password.c_str(), &this->entries, this->header);
         if (!open) {
             std::cout << "Error rvault_session.cpp line 31\n";
             throw GenericException("Failed to Open File");
@@ -55,7 +55,7 @@ RVaultSession::~RVaultSession() {
     if (fs::exists(pth)) {
         RVaultFile file;
 
-        file.save(this, pth);
+        file.save(this, pth.string());
     }
     for (auto & entry : entries) {
         sodium_memzero(&entry, sizeof(RVaultEntryEncrypted));
@@ -141,23 +141,20 @@ bool RVaultSession::decryptEntry(RVaultEntryEncrypted entry, RVaultEntryPlain* o
 
 bool RVaultSession::removeEntry(const std::string& name) {
     for (int i = 0; i < entries.size(); i++) {
-        auto* unencrypt = new RVaultEntryPlain;
+        RVaultEntryPlain unencrypt;
         try {
-            decryptEntry(entries.at(i), unencrypt);
+            decryptEntry(entries.at(i), &unencrypt);
         } catch (GenericException& e) {
-            sodium_memzero(unencrypt, sizeof(RVaultEntryPlain));
-            delete unencrypt;
+            sodium_memzero(&unencrypt, sizeof(RVaultEntryPlain));
             throw;
         }
 
-        std::string entry_name(reinterpret_cast<char*>(unencrypt->entry_name));
+        std::string entry_name(reinterpret_cast<char*>(unencrypt.entry_name));
         if (name == entry_name) {
             entries.erase(entries.begin() + i);
-            delete unencrypt;
             return true;
         }
-        sodium_memzero(unencrypt, sizeof(RVaultEntryPlain));
-        delete unencrypt;
+        sodium_memzero(&unencrypt, sizeof(RVaultEntryPlain));
     }
     return false;
 }

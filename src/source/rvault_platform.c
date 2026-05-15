@@ -118,12 +118,12 @@ int rvault_get_path(char *out, size_t len) {
     size_t appdata_size = strlen(local_app_data);
 
     if (len < appdata_size + 9) return -2;
-    for (int i = 0; i < home_size; i++) {
-        out[i] = home[i];
+    for (int i = 0; i < appdata_size; i++) {
+        out[i] = local_app_data[i];
     }
     char rest_of_path[9] = "\\rvault\\";
-    for (int i = home_size; i < home_size + 9; i++) {
-        out[i] = rest_of_path[i - home_size];
+    for (int i = appdata_size; i < appdata_size + 9; i++) {
+        out[i] = rest_of_path[i - appdata_size];
     }
 #endif
 
