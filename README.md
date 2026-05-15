@@ -6,26 +6,26 @@
 A password manager that uses secure file storage and random generation for creating and storing passwords. Uses libsodium for encryption for secure file storage using the AEAD XChaCha20-Poly1305 cryptography algorithm, as well as Argon2 for key derivation.
 
 ## Dependencies
-[Libsodium](https://libsodium.gitbook.io/doc)- The main crypto library
-[Clip](https://github.com/dacap/clip)- Used for copy/paste utility 
+- [Libsodium](https://libsodium.gitbook.io/doc)- The main crypto library
+- [Clip](https://github.com/dacap/clip)- Used for copy/paste utility 
 
 ## Build tools
-CMake- Main Project compilation handler
-Ninja- Used for compilation
+- CMake- Main Project compilation handler
+- Ninja- Used for compilation
 
 
 ## How to build
 
 ### Linux
-**Clone Repository**
+**Clone Repository** \
 `git clone --recursive https://github.com/rolandvermiglio/RVault`
 
-**Install Dependencies**
-Debian based- `sudo apt install libsodium-dev cmake ninja-build`
-Red Hat based- `sudo dnf install libsodium-devel cmake ninja-build`
-Arch based- `sudo pacman -S libsodium cmake ninja`
+**Install Dependencies** \
+- Debian based- `sudo apt install libsodium-dev cmake ninja-build`
+- Red Hat based- `sudo dnf install libsodium-devel cmake ninja-build`
+- Arch based- `sudo pacman -S libsodium cmake ninja`
 
-**Build and Compile**
+**Build and Compile** \
 `mkdir build && cd build`
 `cmake .. \
 -G Ninja`
@@ -33,14 +33,13 @@ Arch based- `sudo pacman -S libsodium cmake ninja`
 `./rvault`
 
 ### Windows
-**Install MSYS2**
-[MSYS2](https://www.msys2.org)
+**Install** [MSYS2](https://www.msys2.org)
 
-**In the MSYS2 MinGW 64-bit shell**
+**In the MSYS2 MinGW 64-bit shell** \
 `pacman -S mingw-w64-x86_64-libsodium mingw-w64-x86_64-cmake mingw-w64-x86_64-ninja mingw-w64-x86_64-git`
 `git clone --recursive https://github.com/rolandvermiglio/RVault`
 
-**Build and Compile**
+**Build and Compile** \
 `mkdir build && cd build`
 `cmake .. \
 -G Ninja`
