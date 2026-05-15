@@ -1,11 +1,10 @@
 #include "../headers/rvault_platform.h"
 #include <string.h>
-#include <bits/local_lim.h>
 #include "../headers/rvault_constants.h"
 
 #if defined(RVAULT_PLATFORM_WINDOWS)
 #include <windows.h>
-#include <Lmcons.h>
+#include <lmcons.h>
 
 #elif defined(RVAULT_PLATFORM_LINUX) || defined(RVAULT_PLATFORM_UNIX) || defined(RVAULT_PLATFORM_MACOS)
 #include <sys/types.h>
@@ -105,7 +104,6 @@ int rvault_get_path(char *out, size_t len) {
     for (int i = 0; i < home_size; i++) {
         out[i] = home[i];
     }
-    if (len < home_size + 21) return -2;
     char rest_of_path[21] = "/.local/share/rvault/";
     for (int i = home_size; i < home_size + 21; i++) {
         out[i] = rest_of_path[i - home_size];
@@ -113,7 +111,20 @@ int rvault_get_path(char *out, size_t len) {
 #elif defined(RVAULT_PLATFORM_MACOS)
 #error "No MACOS Support Yet"
 #elif defined(RVAULT_PLATFORM_WINDOWS)
-#error "No Windows Support Yet"
+    char* local_app_data = getenv("LOCALAPPDATA");
+    if (!local_app_data) {
+        return -2; //TODO later create GetUserProfileDirectory fallback from the win32 API
+    }
+    size_t appdata_size = strlen(local_app_data);
+
+    if (len < appdata_size + 9) return -2;
+    for (int i = 0; i < home_size; i++) {
+        out[i] = home[i];
+    }
+    char rest_of_path[9] = "\\rvault\\";
+    for (int i = home_size; i < home_size + 9; i++) {
+        out[i] = rest_of_path[i - home_size];
+    }
 #endif
 
     return 0;

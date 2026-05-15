@@ -18,13 +18,13 @@ Replace hardcoded `TESTING_PATH` (`../testFiles/testing.rvault`) with real platf
 Use `rvault_get_platform()` and `rvault_get_username()` — you already wrote these, use them
 Store vault in appropriate user directory per platform (e.g. `~/.local/share/rvault/` on Linux, `%APPDATA%\rvault\` on Windows)
 - [x] Linux Path Handling
-- [ ] MacOS Path Handling
-- [ ] Windows Path Handling
+- [ ] MacOS Path Handling //MACOS support for a later version
+- [x] Windows Path Handling
 ---t
 
 ## 🟡 Platform Issues
 - [ ] **Windows — silent password input broken** — `quietPrompt()` returns `""` on Windows, needs implementation using `ReadConsoleW` with `ENABLE_ECHO_INPUT` disabled
-- [ ] **macOS — CSPRNG is empty** — `rvault_random.c` macOS branch does nothing, implement with `arc4random_buf()`
+- [ ] **macOS — CSPRNG is empty** — `rvault_random.c` macOS branch does nothing, implement with `arc4random_buf()` //MACOS support for a later version
 - [ ] **Non-portable header** — `#include <bits/local_lim.h>` in `rvault_platform.c` is a GCC internal, replace with `<limits.h>`
 
 ---
@@ -43,4 +43,4 @@ Store vault in appropriate user directory per platform (e.g. `~/.local/share/rva
 ## 🟢 Before Handing to Testers
 - [ ] Write README (what it is, how to build, basic usage, crypto stack)
 - [ ] Build instructions for Linux and Windows
-- [ ] Verify hardcoded path is fully replaced before any external testing
+  - [ ] Verify hardcoded path is fully replaced before any external testing

@@ -50,7 +50,7 @@ int rvault_get_username(char *out);
 int rvault_get_platform();
 
 /*
- * Retrieves path as a c
+ * Retrieves path as a string
  */
 int rvault_get_path(char *out, size_t len);
 

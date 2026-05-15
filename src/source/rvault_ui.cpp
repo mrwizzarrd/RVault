@@ -33,8 +33,28 @@ std::string prompt(const std::string& prompt) {
 }
 
 #if defined(RVAULT_PLATFORM_WINDOWS)
-std::string quietPrompt() {
-    return "";
+#include <windows.h>
+std::string quietPrompt(const std::string& prompt) {
+    HANDLE hStdin = GetStdHandle(STD_INPUT_HANDLE);
+    DWORD mode = 0;
+    wchar_t input[MAX_PASSWORD_LEN];
+    SetConsoleMode(hStdin, mode & (~ENABLE_ECHO_OUTPUT));
+    std::cout << prompt << std::flush;
+    wchar_t wbuffer[MAX_PASSWORD_LEN];
+    DWORD charsRead = 0;
+    std::string result;
+
+    if (ReadConsoleW(hStdin, wbuffer, MAX_PASSWORD_LEN, &charsRead, NULL)) {
+        while (charsRead > 0 && (wbuffer[charsRead - 1] == L'\r' || wbuffer[charsRead - 1] == L'\n')) {
+            charsRead--;
+        }
+        if (charsRead > 0) {
+            int sizeNeeded = WideCharToMultiByte(CP_UTF8, 0, wbuffer, (int) charsRead, &result[0], sizeNeeded, NULL, NULL);
+        }
+    }
+    SetConsoleMode(hStdin, mode);
+    std::cout << std::endl;
+    return result;
 }
 #else
 std::string quietPrompt(const std::string& prompt) {
