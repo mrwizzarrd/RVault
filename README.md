@@ -20,7 +20,7 @@ A password manager that uses secure file storage and random generation for creat
 **Clone Repository** \
 `git clone --recursive https://github.com/rolandvermiglio/RVault`
 
-**Install Dependencies** \
+**Install Dependencies** 
 - Debian based- `sudo apt install libsodium-dev cmake ninja-build`
 - Red Hat based- `sudo dnf install libsodium-devel cmake ninja-build`
 - Arch based- `sudo pacman -S libsodium cmake ninja`
