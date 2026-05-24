@@ -19,6 +19,7 @@ std::string bytes_to_string(const uint8_t* bytes) {
     return final;
 }
 
+
 void clear() {
     std::cout << "\033[2J\033[1;1H";
 }
@@ -241,7 +242,7 @@ void generatePassword(RVaultSession& session) {
     }
 
     std::string newEntry = prompt("Create entry with password? [Y/N] (Anything else will be treated as N): ");
-    if (copy == "y" || copy == "Y") {
+    if (newEntry == "y" || newEntry == "Y") {
         RVaultEntryEncrypted Entry;
         RVaultEntryPlain plainEntry;
         std::string name, username;
@@ -263,7 +264,7 @@ void generatePassword(RVaultSession& session) {
     std::cout << "Entry Added!\n";
     press_enter_to_continue();
 
-    sodium_memzero(&password, password.size() + 1);
+    sodium_memzero(password.data(), password.size() + 1);
 }
 
 void deleteVault(RVaultSession& session) {

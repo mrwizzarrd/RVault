@@ -77,4 +77,9 @@ Input >`
 - **On LINUX : File is stored in `~/.local/share/rvault/` and is named vault.rvault**
 - **On WINDOWS : File is stored in `%LOCALAPPDATA%\rvault` and is named vault.rvault**
 
+## Changelog
+
+Alpha-1
+  - Bug fixes regarding UI 
+
 ## License : GNU GPLv3
