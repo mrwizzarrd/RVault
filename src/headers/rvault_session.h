@@ -5,6 +5,7 @@
 #include "rvault_constants.h"
 #include <vector>
 #include "rvault_vault.h"
+#include "rvault_mem.h"
 #include "rvault_file.h"
 
 namespace fs = std::filesystem;
@@ -30,7 +31,7 @@ public:
     /*
      * Getter method for the entries vector
      */
-    std::vector<RVaultEntryEncrypted> getEntries() const;
+    std::vector<RVaultEntryEncrypted, rvault_allocator<RVaultEntryEncrypted>> getEntries() const;
 
     /*
      * Getter method for the vault header
@@ -67,7 +68,7 @@ public:
 
 
 private:
-    std::vector<RVaultEntryEncrypted> entries;
+    std::vector<RVaultEntryEncrypted, rvault_allocator<RVaultEntryEncrypted>> entries;
     RVaultHeader header{};
     uint8_t key[KEY_SIZE]{};
     fs::path pth;

@@ -23,6 +23,9 @@ The "create entry" branch checks `copy` instead of `newEntry`, so entry creation
 If the vector reallocated during the session, old heap pages were never zeroed. The current destructor only clears the final allocation.
 - [ ] Implement a `sodium_allocator<T>` custom allocator that zeroes memory on deallocation
 - [ ] Replace `std::vector<RVaultEntryEncrypted>` with `std::vector<RVaultEntryEncrypted, sodium_allocator<RVaultEntryEncrypted>>`
+\
+**WORK IN PROGRESS**
+
 
 ### Unify File Handling with RAII
 **File:** `rvault_file.cpp`, `rvault_session.cpp`

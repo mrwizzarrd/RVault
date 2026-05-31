@@ -78,7 +78,7 @@ public:
      *     Adds an entry to entries vector for each entry in file
      *
      */
-    bool open(const std::string& path, const char *master_pword, std::vector<RVaultEntryEncrypted>* entries, RVaultHeader& header);
+    bool open(const std::string& path, const char *master_pword, std::vector<RVaultEntryEncrypted, rvault_allocator<RVaultEntryEncrypted>>* entries, RVaultHeader& header);
 
     /*
      * Updates the .rvault file with the up to date list of entries, and header

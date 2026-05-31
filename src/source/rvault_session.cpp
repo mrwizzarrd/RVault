@@ -8,6 +8,7 @@
 #include <filesystem>
 #include <cstring>
 #include "../headers/rvault_exception.h"
+#include "../headers/rvault_mem.h"
 #include <ctime>
 
 namespace fs = std::filesystem;
@@ -57,10 +58,6 @@ RVaultSession::~RVaultSession() {
 
         file.save(this, pth.string());
     }
-    for (auto & entry : entries) {
-        sodium_memzero(&entry, sizeof(RVaultEntryEncrypted));
-    }
-    sodium_memzero(entries.data(), entries.size() * sizeof(RVaultEntryEncrypted));
 }
 
 bool RVaultSession::encryptEntry(RVaultEntryPlain entry, RVaultEntryEncrypted* out) const { //TODO: REFACTOR THIS TO MAKE IT LESS COMPLICATED
@@ -164,7 +161,7 @@ std::filesystem::path RVaultSession::getPath() {
     return pth;
 }
 
-std::vector<RVaultEntryEncrypted> RVaultSession::getEntries() const {
+std::vector<RVaultEntryEncrypted, rvault_allocator<RVaultEntryEncrypted>> RVaultSession::getEntries() const {
     return entries;
 }
 

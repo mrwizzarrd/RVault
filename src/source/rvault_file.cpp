@@ -12,6 +12,7 @@
 #include <fstream>
 
 #include "../headers/rvault_exception.h"
+#include "../headers/rvault_mem.h"
 
 namespace fs = std::filesystem;
 
@@ -69,7 +70,7 @@ bool RVaultFile::create(const std::string &path, const char *master_pword, RVaul
     return true;
 }
 
-bool RVaultFile::open(const std::string& path, const char *master_pword, std::vector<RVaultEntryEncrypted>* entries, RVaultHeader& header) {
+bool RVaultFile::open(const std::string& path, const char *master_pword, std::vector<RVaultEntryEncrypted, rvault_allocator<RVaultEntryEncrypted>>* entries, RVaultHeader& header) {
     if (path.empty() || !master_pword || !entries) {
         return false;
     }
@@ -117,7 +118,7 @@ bool RVaultFile::save(RVaultSession* session, const std::string& filename) {
     RVaultHeader head = session->getHeader();
     head.entry_count = session->getEntries().size();
     file.write(reinterpret_cast<const char*>(&head), sizeof(header));
-    std::vector<RVaultEntryEncrypted> entries = session->getEntries();
+    std::vector<RVaultEntryEncrypted, rvault_allocator<RVaultEntryEncrypted>> entries = session->getEntries();
     for (int i = 0; i < entries.size(); i++) {
         file.write(reinterpret_cast<const char*>(&entries[i]), sizeof(RVaultEntryEncrypted));
     }

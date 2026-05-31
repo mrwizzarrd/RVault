@@ -264,7 +264,7 @@ void generatePassword(RVaultSession& session) {
     std::cout << "Entry Added!\n";
     press_enter_to_continue();
 
-    sodium_memzero(password.data(), password.size() + 1);
+    sodium_memzero(password.data(), password.size());
 }
 
 void deleteVault(RVaultSession& session) {

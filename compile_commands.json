@@ -1,0 +1,104 @@
+[
+{
+  "directory": "/home/mrwizzarrd/GitHub/RVault/build",
+  "command": "/usr/bin/cc -I/home/mrwizzarrd/GitHub/RVault/external_lib/clip -std=gnu11 -o CMakeFiles/rvault.dir/src/source/rvault_random.c.o -c /home/mrwizzarrd/GitHub/RVault/src/source/rvault_random.c",
+  "file": "/home/mrwizzarrd/GitHub/RVault/src/source/rvault_random.c",
+  "output": "/home/mrwizzarrd/GitHub/RVault/build/CMakeFiles/rvault.dir/src/source/rvault_random.c.o"
+},
+{
+  "directory": "/home/mrwizzarrd/GitHub/RVault/build",
+  "command": "/usr/bin/cc -I/home/mrwizzarrd/GitHub/RVault/external_lib/clip -std=gnu11 -o CMakeFiles/rvault.dir/src/source/rvault_crypto.c.o -c /home/mrwizzarrd/GitHub/RVault/src/source/rvault_crypto.c",
+  "file": "/home/mrwizzarrd/GitHub/RVault/src/source/rvault_crypto.c",
+  "output": "/home/mrwizzarrd/GitHub/RVault/build/CMakeFiles/rvault.dir/src/source/rvault_crypto.c.o"
+},
+{
+  "directory": "/home/mrwizzarrd/GitHub/RVault/build",
+  "command": "/usr/bin/c++ -I/home/mrwizzarrd/GitHub/RVault/external_lib/clip -o CMakeFiles/rvault.dir/src/source/rvault_auth.cpp.o -c /home/mrwizzarrd/GitHub/RVault/src/source/rvault_auth.cpp",
+  "file": "/home/mrwizzarrd/GitHub/RVault/src/source/rvault_auth.cpp",
+  "output": "/home/mrwizzarrd/GitHub/RVault/build/CMakeFiles/rvault.dir/src/source/rvault_auth.cpp.o"
+},
+{
+  "directory": "/home/mrwizzarrd/GitHub/RVault/build",
+  "command": "/usr/bin/c++ -I/home/mrwizzarrd/GitHub/RVault/external_lib/clip -o CMakeFiles/rvault.dir/src/source/rvault_main.cpp.o -c /home/mrwizzarrd/GitHub/RVault/src/source/rvault_main.cpp",
+  "file": "/home/mrwizzarrd/GitHub/RVault/src/source/rvault_main.cpp",
+  "output": "/home/mrwizzarrd/GitHub/RVault/build/CMakeFiles/rvault.dir/src/source/rvault_main.cpp.o"
+},
+{
+  "directory": "/home/mrwizzarrd/GitHub/RVault/build",
+  "command": "/usr/bin/cc -I/home/mrwizzarrd/GitHub/RVault/external_lib/clip -std=gnu11 -o CMakeFiles/rvault.dir/src/source/rvault_platform.c.o -c /home/mrwizzarrd/GitHub/RVault/src/source/rvault_platform.c",
+  "file": "/home/mrwizzarrd/GitHub/RVault/src/source/rvault_platform.c",
+  "output": "/home/mrwizzarrd/GitHub/RVault/build/CMakeFiles/rvault.dir/src/source/rvault_platform.c.o"
+},
+{
+  "directory": "/home/mrwizzarrd/GitHub/RVault/build",
+  "command": "/usr/bin/c++ -I/home/mrwizzarrd/GitHub/RVault/external_lib/clip -o CMakeFiles/rvault.dir/src/source/rvault_file.cpp.o -c /home/mrwizzarrd/GitHub/RVault/src/source/rvault_file.cpp",
+  "file": "/home/mrwizzarrd/GitHub/RVault/src/source/rvault_file.cpp",
+  "output": "/home/mrwizzarrd/GitHub/RVault/build/CMakeFiles/rvault.dir/src/source/rvault_file.cpp.o"
+},
+{
+  "directory": "/home/mrwizzarrd/GitHub/RVault/build",
+  "command": "/usr/bin/c++ -I/home/mrwizzarrd/GitHub/RVault/external_lib/clip -o CMakeFiles/rvault.dir/src/source/rvault_session.cpp.o -c /home/mrwizzarrd/GitHub/RVault/src/source/rvault_session.cpp",
+  "file": "/home/mrwizzarrd/GitHub/RVault/src/source/rvault_session.cpp",
+  "output": "/home/mrwizzarrd/GitHub/RVault/build/CMakeFiles/rvault.dir/src/source/rvault_session.cpp.o"
+},
+{
+  "directory": "/home/mrwizzarrd/GitHub/RVault/build",
+  "command": "/usr/bin/c++ -I/home/mrwizzarrd/GitHub/RVault/external_lib/clip -o CMakeFiles/rvault.dir/src/source/rvault_exception.cpp.o -c /home/mrwizzarrd/GitHub/RVault/src/source/rvault_exception.cpp",
+  "file": "/home/mrwizzarrd/GitHub/RVault/src/source/rvault_exception.cpp",
+  "output": "/home/mrwizzarrd/GitHub/RVault/build/CMakeFiles/rvault.dir/src/source/rvault_exception.cpp.o"
+},
+{
+  "directory": "/home/mrwizzarrd/GitHub/RVault/build",
+  "command": "/usr/bin/c++ -I/home/mrwizzarrd/GitHub/RVault/external_lib/clip -o CMakeFiles/rvault.dir/src/source/rvault_ui.cpp.o -c /home/mrwizzarrd/GitHub/RVault/src/source/rvault_ui.cpp",
+  "file": "/home/mrwizzarrd/GitHub/RVault/src/source/rvault_ui.cpp",
+  "output": "/home/mrwizzarrd/GitHub/RVault/build/CMakeFiles/rvault.dir/src/source/rvault_ui.cpp.o"
+},
+{
+  "directory": "/home/mrwizzarrd/GitHub/RVault/build",
+  "command": "/usr/bin/c++ -DCLIP_BUILDING_LIB=1 -DHAVE_XCB_XLIB_H -std=gnu++11 -o external_lib/clip/CMakeFiles/clip.dir/clip.cpp.o -c /home/mrwizzarrd/GitHub/RVault/external_lib/clip/clip.cpp",
+  "file": "/home/mrwizzarrd/GitHub/RVault/external_lib/clip/clip.cpp",
+  "output": "/home/mrwizzarrd/GitHub/RVault/build/external_lib/clip/CMakeFiles/clip.dir/clip.cpp.o"
+},
+{
+  "directory": "/home/mrwizzarrd/GitHub/RVault/build",
+  "command": "/usr/bin/c++ -DCLIP_BUILDING_LIB=1 -DHAVE_XCB_XLIB_H -std=gnu++11 -o external_lib/clip/CMakeFiles/clip.dir/clip_x11.cpp.o -c /home/mrwizzarrd/GitHub/RVault/external_lib/clip/clip_x11.cpp",
+  "file": "/home/mrwizzarrd/GitHub/RVault/external_lib/clip/clip_x11.cpp",
+  "output": "/home/mrwizzarrd/GitHub/RVault/build/external_lib/clip/CMakeFiles/clip.dir/clip_x11.cpp.o"
+},
+{
+  "directory": "/home/mrwizzarrd/GitHub/RVault/build",
+  "command": "/usr/bin/c++ -I/home/mrwizzarrd/GitHub/RVault/external_lib/clip/examples/.. -I/home/mrwizzarrd/GitHub/RVault/external_lib/clip -std=gnu++11 -o external_lib/clip/examples/CMakeFiles/copy.dir/copy.cpp.o -c /home/mrwizzarrd/GitHub/RVault/external_lib/clip/examples/copy.cpp",
+  "file": "/home/mrwizzarrd/GitHub/RVault/external_lib/clip/examples/copy.cpp",
+  "output": "/home/mrwizzarrd/GitHub/RVault/build/external_lib/clip/examples/CMakeFiles/copy.dir/copy.cpp.o"
+},
+{
+  "directory": "/home/mrwizzarrd/GitHub/RVault/build",
+  "command": "/usr/bin/c++ -I/home/mrwizzarrd/GitHub/RVault/external_lib/clip/examples/.. -I/home/mrwizzarrd/GitHub/RVault/external_lib/clip -std=gnu++11 -o external_lib/clip/examples/CMakeFiles/hello_world.dir/hello_world.cpp.o -c /home/mrwizzarrd/GitHub/RVault/external_lib/clip/examples/hello_world.cpp",
+  "file": "/home/mrwizzarrd/GitHub/RVault/external_lib/clip/examples/hello_world.cpp",
+  "output": "/home/mrwizzarrd/GitHub/RVault/build/external_lib/clip/examples/CMakeFiles/hello_world.dir/hello_world.cpp.o"
+},
+{
+  "directory": "/home/mrwizzarrd/GitHub/RVault/build",
+  "command": "/usr/bin/c++ -I/home/mrwizzarrd/GitHub/RVault/external_lib/clip/examples/.. -I/home/mrwizzarrd/GitHub/RVault/external_lib/clip -std=gnu++11 -o external_lib/clip/examples/CMakeFiles/int_format.dir/int_format.cpp.o -c /home/mrwizzarrd/GitHub/RVault/external_lib/clip/examples/int_format.cpp",
+  "file": "/home/mrwizzarrd/GitHub/RVault/external_lib/clip/examples/int_format.cpp",
+  "output": "/home/mrwizzarrd/GitHub/RVault/build/external_lib/clip/examples/CMakeFiles/int_format.dir/int_format.cpp.o"
+},
+{
+  "directory": "/home/mrwizzarrd/GitHub/RVault/build",
+  "command": "/usr/bin/c++ -I/home/mrwizzarrd/GitHub/RVault/external_lib/clip/examples/.. -I/home/mrwizzarrd/GitHub/RVault/external_lib/clip -std=gnu++11 -o external_lib/clip/examples/CMakeFiles/paste.dir/paste.cpp.o -c /home/mrwizzarrd/GitHub/RVault/external_lib/clip/examples/paste.cpp",
+  "file": "/home/mrwizzarrd/GitHub/RVault/external_lib/clip/examples/paste.cpp",
+  "output": "/home/mrwizzarrd/GitHub/RVault/build/external_lib/clip/examples/CMakeFiles/paste.dir/paste.cpp.o"
+},
+{
+  "directory": "/home/mrwizzarrd/GitHub/RVault/build",
+  "command": "/usr/bin/c++ -I/home/mrwizzarrd/GitHub/RVault/external_lib/clip/tests/.. -I/home/mrwizzarrd/GitHub/RVault/external_lib/clip -std=gnu++11 -o external_lib/clip/tests/CMakeFiles/clip_text_tests.dir/text_tests.cpp.o -c /home/mrwizzarrd/GitHub/RVault/external_lib/clip/tests/text_tests.cpp",
+  "file": "/home/mrwizzarrd/GitHub/RVault/external_lib/clip/tests/text_tests.cpp",
+  "output": "/home/mrwizzarrd/GitHub/RVault/build/external_lib/clip/tests/CMakeFiles/clip_text_tests.dir/text_tests.cpp.o"
+},
+{
+  "directory": "/home/mrwizzarrd/GitHub/RVault/build",
+  "command": "/usr/bin/c++ -I/home/mrwizzarrd/GitHub/RVault/external_lib/clip/tests/.. -I/home/mrwizzarrd/GitHub/RVault/external_lib/clip -std=gnu++11 -o external_lib/clip/tests/CMakeFiles/clip_user_format_tests.dir/user_format_tests.cpp.o -c /home/mrwizzarrd/GitHub/RVault/external_lib/clip/tests/user_format_tests.cpp",
+  "file": "/home/mrwizzarrd/GitHub/RVault/external_lib/clip/tests/user_format_tests.cpp",
+  "output": "/home/mrwizzarrd/GitHub/RVault/build/external_lib/clip/tests/CMakeFiles/clip_user_format_tests.dir/user_format_tests.cpp.o"
+}
+]
